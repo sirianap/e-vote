@@ -18,4 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/nim', 'NimController@index')->name('nim');
 Route::get('/cakahim', 'Cakahim@index')->name('cakahim');

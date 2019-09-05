@@ -11,10 +11,38 @@
     <title>@yield('title')</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="">E-vote Himalkom</a>
+    <nav class="nav nav-pills navbar-expand-lg py-2 navbar-light bg-light px-4 justify-content-between">
+      <ul class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <a class="navbar-brand" href="">E-Vote Himpunan Mahasiswa Ilmu Komputer</a>
+        </div>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Counter</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{route('nim')}}">Input NIM</a>
+            <a class="dropdown-item" href="{{route('cakahim')}}">Pilih Kahim</a>
+          </div>
+        </li>
+        <div class="nav-item">
+          <a class="nav-link" href="">Input Cakahim</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="">Daftar Pemilih</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="">Hasil</a>
+        </div>
+        
+      </ul>
+      <ul class="nav">
+        <div class="nav-text">
+          <a class="nav-link text-secondary float-right" href="">Admin</a>
+        </div>
+      </ul>
     </nav>
 
+    
+    <div class="py-2"></div> 
     @yield('content')
     
 

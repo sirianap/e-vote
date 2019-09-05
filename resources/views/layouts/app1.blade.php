@@ -34,7 +34,7 @@
           <a class="nav-link" href="{{route('daftarpemilih')}}">Daftar Pemilih</a>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="">Hasil</a>
+          <a class="nav-link disabled" href="">Hasil</a>
         </div>
         
       </ul>

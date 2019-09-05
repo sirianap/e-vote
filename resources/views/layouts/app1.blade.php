@@ -20,24 +20,32 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Counter</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{route('nim')}}">Input NIM</a>
-            <a class="dropdown-item" href="{{route('cakahim')}}">Pilih Kahim</a>
+            <a class="dropdown-item" href="{{route('pilihkahim')}}">Pilih Kahim</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cakahim</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{route('cakahim')}}">List Kahim</a>
+            <a class="dropdown-item" href="">Input Kahim</a>
           </div>
         </li>
         <div class="nav-item">
-          <a class="nav-link" href="">Input Cakahim</a>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="">Daftar Pemilih</a>
+          <a class="nav-link" href="{{route('daftarpemilih')}}">Daftar Pemilih</a>
         </div>
         <div class="nav-item">
           <a class="nav-link" href="">Hasil</a>
         </div>
         
       </ul>
-      <ul class="nav">
-        <div class="nav-text">
-          <a class="nav-link text-secondary float-right" href="">Admin</a>
-        </div>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown mr-4">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rian Ardiana Prapanca</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="">Counter</a>
+            <a class="dropdown-item" href="">Logout</a>
+          </div>
+        </li>
       </ul>
     </nav>
 

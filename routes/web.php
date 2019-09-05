@@ -19,4 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/nim', 'NimController@index')->name('nim');
-Route::get('/cakahim', 'Cakahim@index')->name('cakahim');
+Route::get('/pilihkahim', 'PilihKahimController@index')->name('pilihkahim');
+Route::post('/pilihkahim', 'PilihKahimController@index')->name('pilihkahim');
+Route::get('/cakahim', 'CakahimController@index')->name('cakahim');
+Route::get('/daftarpemilih', 'DaftarPemilihController@index')->name('daftarpemilih');
+Route::get('/inputpemilih', 'DaftarPemilihController@input')->name('inputpemilih');
+

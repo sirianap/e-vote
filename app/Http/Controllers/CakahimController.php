@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Cakahim extends Controller
+class CakahimController extends Controller
 {
     /**
      * Display a listing of the resource.

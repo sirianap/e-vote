@@ -2,8 +2,8 @@
 @section('title','Daftar Cakahim')
 @section('content')
 <div class="section justify-content-center py-4">
+    <h5>Rian Ardiana Prapanca G64170085</h5>
     <h2 class="">Calon Ketua Himpunan Mahasiswa Ilmu Komputer</h2>
-    <a href="" class="btn btn-primary mb-2">Input Cakahim</a>
     <div class="container mx-1">
         <div class="card-deck mx-0 px-0">
             <div class="card">
@@ -15,7 +15,7 @@
                 <p class="card-text text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio temporibus fugiat eligendi vero, quisquam rerum harum, perferendis optio earum hic commodi assumenda praesentium tempore ut reiciendis nam minima excepturi. Culpa.</p>
                 </div>
                 <div class="card-footer text-center">
-                <small class=""><a href="" class="btn btn-primary px-5">Edit</a></small>
+                <small class=""><a href="" class="btn btn-primary px-5"> Pilih</a></small>
                 </div>
             </div>
             <div class="card">
@@ -27,7 +27,7 @@
                 <p class="card-text text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio temporibus fugiat eligendi vero, quisquam rerum harum, perferendis optio earum hic commodi assumenda praesentium tempore ut reiciendis nam minima excepturi. Culpa.</p>
                 </div>
                 <div class="card-footer text-center">
-                <small class=""><a href="" class="btn btn-primary px-5">Edit</a></small>
+                <small class=""><a href="" class="btn btn-primary px-5"> Pilih</a></small>
                 </div>
             </div>
             <div class="card">
@@ -39,7 +39,7 @@
                 <p class="card-text text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio temporibus fugiat eligendi vero, quisquam rerum harum, perferendis optio earum hic commodi assumenda praesentium tempore ut reiciendis nam minima excepturi. Culpa.</p>
                 </div>
                 <div class="card-footer text-center">
-                <small class=""><a href="" class="btn btn-primary px-5">Edit</a></small>
+                <small class=""><a href="" class="btn btn-primary px-5"> Pilih</a></small>
                 </div>
             </div>
             

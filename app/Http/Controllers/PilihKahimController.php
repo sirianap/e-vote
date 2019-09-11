@@ -3,17 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Counter;
+use App\Cakahim;
+use App\DaftarPemilih;
+
 
 class PilihKahimController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function counterauth()
     {
-        return view('pilihkahim');
+        return view('counterauth');    
+    }
+    public function auth(Request $request)
+    {
+        if( $data = Counter::where('counter',$request->counter)->first() ){
+            if( $data->key == $request->password){
+                $nih = $data->counter;
+                return view('nim', compact('nih'));
+            }
+            else
+                return view('counterauth');
+        }
+        return view('counterauth');
+    }
+    
+    public function nim(Request $request)
+    {
+        return view('nim');
+    }
+
+    public function index(Request $request)
+    {
+        $daftarpemilih = DaftarPemilih::find('nim',$request->nim);
+        return $daftarpemilih;
+        if($daftarpemilih = DaftarPemilih::where('nim',$request->nim)){
+            return $daftarpemilih;
+        }
+        else
+            return "fail";
+        $pemilih = $request;
+        $cakahim = Cakahim::all();
+        return view('pilihkahim',compact('cakahim','pemilih'));
     }
 
     /**

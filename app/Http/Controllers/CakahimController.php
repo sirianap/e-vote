@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cakahim;
 
 class CakahimController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class CakahimController extends Controller
      */
     public function index(Request $request)
     {
-        return view('cakahim');
+        $cakahim = Cakahim::all();
+        return view('cakahim',compact('cakahim'));
     }
 
     /**
@@ -23,7 +29,7 @@ class CakahimController extends Controller
      */
     public function create()
     {
-        //
+        return view('inputcakahim');
     }
 
     /**
@@ -34,7 +40,8 @@ class CakahimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cakahim::create($request->all());
+        return redirect('cakahim');
     }
 
     /**
@@ -54,9 +61,10 @@ class CakahimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $cakahim = Cakahim::find($request->id);
+        return view('editcakahim',compact('cakahim'));
     }
 
     /**
@@ -66,9 +74,17 @@ class CakahimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cakahim $cakahim)
     {
-        //
+        $cakahim = Cakahim::find($request->id);
+        $cakahim->namapasangan = $request->namapasangan;
+        $cakahim->namakahim = $request->namakahim;
+        $cakahim->nimkahim = $request->nimkahim;
+        $cakahim->namawakahim = $request->namawakahim;
+        $cakahim->nimwakahim = $request->nimwakahim;
+        $cakahim->motto = $request->motto;
+        $cakahim->save();
+        return redirect(route('cakahim'));
     }
 
     /**

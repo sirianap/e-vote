@@ -29,7 +29,10 @@
           <a class="nav-link" href="{{route('daftarpemilih')}}">Daftar Pemilih</a>
         </div>
         <div class="nav-item">
-          <a class="nav-link disabled" href="">Hasil</a>
+          <a class="nav-link" href="{{route('counters.index')}}">Counter</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="{{route('hasil')}}">Hasil</a>
         </div>
         
       </ul>
@@ -37,7 +40,6 @@
         <li class="nav-item dropdown mr-4">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rian Ardiana Prapanca</a>
           <div class="dropdown-menu">
-            <a href="" class="dropdown-item">Counter</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -64,6 +66,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+  @yield('script')
 
   <!-- Page level plugins -->
   <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>

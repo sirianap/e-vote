@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Counter;
 use App\Cakahim;
 use App\DaftarPemilih;
@@ -26,33 +27,40 @@ class PilihKahimController extends Controller
     public function auth(Request $request)
     {
         if( $data = Counter::where('counter',$request->counter)->first() ){
-            if( $data->key == $request->password){
-                $nih = $data->counter;
-                return view('nim', compact('nih'));
+            if( $data->key == $request->key){
+                session(['counter' => $data->counter]);
+                return redirect(route('nim'));
             }
             else
-                return view('counterauth');
+                return redirect('counter');
         }
-        return view('counterauth');
+        return redirect('counter');
     }
     
     public function nim(Request $request)
     {
-        return view('nim');
-    }
-
-    public function index(Request $request)
-    {
-        $daftarpemilih = DaftarPemilih::find('nim',$request->nim);
-        return $daftarpemilih;
-        if($daftarpemilih = DaftarPemilih::where('nim',$request->nim)){
-            return $daftarpemilih;
+        if ($request->session()->has('counter')) {
+            return view('nim');
         }
         else
-            return "fail";
-        $pemilih = $request;
-        $cakahim = Cakahim::all();
-        return view('pilihkahim',compact('cakahim','pemilih'));
+            return redirect('counter');
+    }
+    
+    public function index(Request $request)
+    {
+        if($request->session()->has('pemilih')){
+            $pemilih = DB::table('daftarpemilihs')->where('nim',session('pemilih'))->first();
+            if( $pemilih->counter != session('counter'))
+                return redirect(route('nim'))->with('status','NIM anda tidak terdaftar di counter ini.');
+            if( $pemilih->vote == 0){
+                $cakahim = Cakahim::all();
+                return view('pilihkahim',compact('cakahim','pemilih'));
+            }
+            else 
+                return redirect(route('nim'))->with('status','Anda telah memilih.');
+        }
+        else
+            return redirect(route('nim'));
     }
 
     /**
@@ -60,9 +68,17 @@ class PilihKahimController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ceknim(Request $request)
     {
-        //
+        $request->validate([
+            'nim' => ['required']
+        ]);
+        if($pemilih = DB::table('daftarpemilihs')->where('nim',$request->nim)->first()){
+            return redirect('pilihkahim')->with('pemilih',$request->nim);
+        }
+        else
+            return redirect('nim')->with('status','NIM tidak ditemukan. Silahkan hubungi administrator.');
+
     }
 
     /**
@@ -73,7 +89,11 @@ class PilihKahimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pemilih = DaftarPemilih::find($request->id_pemilih);
+        $pemilih->counter = $request->counter;
+        $pemilih->vote = $request->id_cakahim;
+        $pemilih->save();
+        return redirect('nim')->with('popup-status','Terima kasih sudah memilih.');
     }
 
     /**
@@ -105,9 +125,9 @@ class PilihKahimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
     }
 
     /**

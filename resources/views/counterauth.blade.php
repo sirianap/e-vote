@@ -20,7 +20,7 @@
                         <div class="form-group row">
                             <label for="key" class="col-md-4 col-form-label text-md-right">Key</label>
                             <div class="col-md-6">
-                                <input id="key" type="password" class="form-control" name="password" required>
+                                <input id="key" type="password" class="form-control" name="key" required>
                             </div>
                         </div>
 

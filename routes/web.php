@@ -21,9 +21,12 @@ Route::get('/home', 'DaftarPemilihController@index')->name('home');
 
 Route::get('/pilihkahim', 'PilihKahimController@index')->name('pilihkahim');
 Route::post('/auth', 'PilihKahimController@auth')->name('authcounter');
-Route::post('/pilihkahim', 'PilihKahimController@index')->name('pilihkahim');
+Route::post('/pilihkahim', 'PilihKahimController@ceknim')->name('ceknim');
+Route::post('/pilih', 'PilihKahimController@store')->name('pilih');
 Route::get('/nim', 'PilihKahimController@nim')->name('nim');
 Route::get('/counter', 'PilihKahimController@counterauth')->name('counter');
+
+Route::resource('counters','CounterController');
 
 Route::get('/cakahim', 'CakahimController@index')->name('cakahim');
 Route::get('/cakahim/create', 'CakahimController@create')->name('inputcakahim');
@@ -37,4 +40,5 @@ Route::get('/pemilih/edit', 'DaftarPemilihController@edit')->name('editpemilih')
 Route::post('/pemilih/update', 'DaftarPemilihController@update')->name('updatepemilih');
 Route::post('/pemilih', 'DaftarPemilihController@store')->name('storepemilih');
 
+Route::get('/hasil', 'HasilController@index')->name('hasil');
 

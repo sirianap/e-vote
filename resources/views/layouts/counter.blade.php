@@ -16,8 +16,13 @@
     <nav class="nav nav-pills navbar-expand-lg py-2 navbar-light bg-light px-4 justify-content-between">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="navbar-brand" href="/">E-Vote Himpunan Mahasiswa Ilmu Komputer</a>
+          <a class="navbar-brand" href="">E-Vote Himpunan Mahasiswa Ilmu Komputer</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ml-auto my-auto">
+        <li class="nav-item">
+          <a class="align-middle nav-link" href="{{route('counter')}}">Counter {{session('counter')}}</a>     
+        </li>         
       </ul>
     </nav>
 

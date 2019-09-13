@@ -1,12 +1,14 @@
 @extends('layouts.app1')
 @section('title','Daftar Pemilih')
 @section('content')
-<div class="section justify-content-center py-5">
-    <h2 class="mb-0">Daftar Pemilih</h2>
-    <a href="{{route('inputpemilih')}}" class="btn btn-primary m-2">Input Pemilih</a>
-    <div class="container ">
-        <div class="row justify-content-center">
-            <div class="col-10">
+<div class="section justify-content-center">
+    <div class="container mb-4">
+        <div class="card shadow ">
+            <div class="card-header py-0 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="mb-0">Daftar Pemilih</h6>
+                <a href="{{route('inputpemilih')}}" class="btn btn-primary m-2">Input</a>
+            </div>
+            <div class="card-body">
                 <table class="table" id="pemilih">
                     <thead>
                         <tr>
